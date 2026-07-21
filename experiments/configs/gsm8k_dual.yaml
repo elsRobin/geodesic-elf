@@ -1,0 +1,59 @@
+# GSM8K Dual-Branch Training — Week 3: CoT diagnostics
+# Goal: Decode branch functional for intermediate-state analysis
+
+model:
+  vocab_size: 8192
+  embed_dim: 512
+  depth: 6
+  hidden_size: 512
+  num_heads: 8
+  head_dim: 64
+  mlp_ratio: 4.0
+  dropout: 0.0
+  rope_theta: 10000.0
+  num_time_tokens: 4
+  num_mode_tokens: 4
+  max_seq_len: 256
+
+training:
+  max_steps: 50000
+  batch_size: 32
+  grad_accum_steps: 1
+  max_seq_len: 256
+  eval_every: 500
+  save_every: 5000
+  log_every: 25
+  learning_rate: 3.0e-4
+  weight_decay: 0.01
+  beta1: 0.9
+  beta2: 0.98
+  eps: 1.0e-8
+  warmup_steps: 2000
+  lr_schedule: cosine
+  ema_decay: 0.9999
+  denoiser_p_mean: -1.5
+  denoiser_p_std: 0.8
+  denoiser_noise_scale: 2.0
+  t_eps: 0.01
+  decoder_prob: 0.5
+  decoder_noise_scale: 2.0
+  decoder_t_min: 0.7
+  decoder_t_max: 1.0
+  decode_lr_multiplier: 2.0
+  dtype: float32
+  use_compile: false
+  use_wandb: true
+  wandb_project: elf-s-gsm8k
+  wandb_run_name: gsm8k-dual-v1
+  output_dir: ./checkpoints/gsm8k-dual
+  dataset_name: null
+  data_dir: ./data/gsm8k
+
+generation:
+  method: sde
+  num_steps: 64
+  noise_scale: 2.0
+  sde_gamma: 0.5
+  max_new_tokens: 128
+  temperature: 1.0
+  time_schedule: logit_normal
