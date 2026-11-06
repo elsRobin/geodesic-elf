@@ -181,11 +181,11 @@ energy = geodesic_energy(model, z_start, z_end, num_points=16)
 If you use this code in your research, please cite the repository:
 
 ```bibtex
-@software{yuan2025geodesic_elf,
+@software{yuan2026geodesic_elf,
   author = {Yuan, Yuyang},
   title = {Geodesic-ELF: Geodesic Energy Ratio Diagnostics for Continuous Diffusion Language Models},
   url = {https://github.com/elsRobin/geodesic-elf},
-  year = {2025}
+  year = {2026}
 }
 ```
 
