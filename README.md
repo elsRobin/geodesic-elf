@@ -189,6 +189,8 @@ If you use this code in your research, please cite the repository:
 }
 ```
 
+The paper is just provided as a reference for some phenomena. Although not published due to personal reasons, it cannot appear in other places.
+
 ## License
 
 MIT
